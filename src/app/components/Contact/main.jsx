@@ -1,13 +1,30 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { IconDeviceMobile, IconLocation, IconLocationBolt, IconMapPin, IconMapPinFilled } from '@tabler/icons-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = ({contactRef}) => {
     const form = useRef();
+    const [success, setsuccess] = useState(null);
 
-    const handleSubmit = (e) =>{
+    const sendEmail = (e) => {
         e.preventDefault();
-    }
+    
+        emailjs
+          .sendForm('service_9y3ia4j', 'template_aqpbzo3', form.current, {
+            publicKey: 'vO9B2zWg0sjDpSYQ-',
+          })
+          .then(
+            () => {
+              console.log('SUCCESS!');
+              setsuccess(true);
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+              setsuccess(false);
+            },
+          );
+      };
 
   return (
     <Box ref={contactRef}>
@@ -51,14 +68,14 @@ const Contact = ({contactRef}) => {
             </Box>
             <Box>
                 <Typography sx={{fontWeight:600}}>I’d be happy to hear from you! Please feel free to reach out, and let’s connect.</Typography>
-                    <form ref={form} onSubmit={handleSubmit}>
+                    <form ref={form} onSubmit={sendEmail}>
                         <Box sx={{display:'flex', flexDirection:'column', gap:2, my:1}}>
-                                <TextField label="Name" size="small"/>
-                                <TextField label="Email" size="small"/>
-                                <TextField label="Mobile" size="small"/>
-                                <TextField label="Your Message" size="small" multiline rows={3}/>
+                                <TextField label="Name" name="name" size="small"/>
+                                <TextField label="Email" name="email" size="small"/>
+                                <TextField label="Mobile" name="mobile" size="small"/>
+                                <TextField label="Your Message" name="message" size="small" multiline rows={3}/>
                                 <Box sx={{width:'100%', display:'flex', justifyContent:'end'}}>
-                                    <Button variant='contained'>Send Message</Button>
+                                    <Button type='submit' variant='contained'>Send Message</Button>
                                 </Box>
                         </Box>
                     </form>
