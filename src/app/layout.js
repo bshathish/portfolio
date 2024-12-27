@@ -1,8 +1,7 @@
-import { Inter, Poppins, Kanit, Josefin_Sans } from "next/font/google";
+import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-const poppin = Josefin_Sans({  weight: "400" });
+const poppin = Josefin_Sans({  weight: "400", subsets: ["latin"] });
 
 export const metadata = {
   title: "shathish",
