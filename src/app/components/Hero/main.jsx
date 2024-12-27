@@ -49,11 +49,11 @@ const Hero = () => {
         </Box>
         <Box sx={{display:'flex', alignItems:'center', gap:2, mt:3}}>
             <Button sx={{background:'blue', borderRadius:'20px', color:'white', px:2}} startIcon={<IconBrandLinkedin color='white'/>} href='https://www.linkedin.com/in/shathish-b-a6102920b/' target='_blank'>
-                <Typography sx={{fontWeight:600, pt:0.5}}> Linkedin </Typography>
+                <Typography sx={{fontWeight:600, pt:0.5, color:'white'}}> Linkedin </Typography>
             </Button>
             <a href='/docs/Resume.pdf' style={{textDecoration:'none'}} target='_blank'>
                 <Button variant='contained' sx={{ borderRadius:'20px', px:2}} startIcon={<IconDownload/>}>
-                    <Typography sx={{fontWeight:600, pt:0.5}}> Resume </Typography>
+                    <Typography sx={{fontWeight:600, pt:0.5, color:'white'}}> Resume </Typography>
                 </Button>
             </a>
         </Box>
