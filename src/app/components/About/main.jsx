@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer'
 import ScrollTriggered from '../Hero/animation/profileImage'
 
 
-const About = () => {
+const About = ({projectRef}) => {
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.1,
@@ -44,7 +44,7 @@ const About = () => {
                                     key={index} 
                                     style={{ flex: '1 1 50%', display: 'flex', alignItems: 'center', fontWeight:600 }}
                                 >
-                                    <IconChevronCompactRight style={{ color: '#FE009D' }} /> {skill}
+                                    <IconChevronCompactRight ref={projectRef} style={{ color: '#FE009D' }} /> {skill}
                                 </ListItem>
                                 ))
                             }
@@ -54,6 +54,7 @@ const About = () => {
                 </motion.div>
             <ScrollTriggered />
         </Box>
+        <Box />
     </Box>
   )
 }

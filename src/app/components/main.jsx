@@ -1,5 +1,5 @@
 import { Box, Container } from '@mui/material'
-import React from 'react'
+import React, { useRef } from 'react'
 import NavBar from './Navbar/main'
 import Hero from './Hero/main'
 import About from './About/main'
@@ -11,15 +11,20 @@ import { useLenis } from '../lenis'
 
 const App = () => {
   useLenis();
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const projectRef = useRef(null);
+  const contactRef = useRef(null);
+
   return (
     <Box>
-      <Box sx={{m:4, mx:7, position:'relative'}}>
-          <NavBar/>
-          <Hero/>
-          <About/>
+      <Box ref={homeRef} sx={{m:4, mx:7, position:'relative'}}>
+          <NavBar homeRef={homeRef} aboutRef={aboutRef} projectRef={projectRef} contactRef={contactRef} />
+          <Hero aboutRef={aboutRef}/>
+          <About projectRef={projectRef}/>
           <Projects/>
           <Experience/>
-          <Contact/>
+          <Contact contactRef ={contactRef}/>
       </Box>
       <Footer/>
     </Box>

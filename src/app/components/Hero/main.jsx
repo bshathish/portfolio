@@ -3,7 +3,7 @@ import React from 'react';
 import * as motion from "motion/react-client";
 import { IconBrandLinkedin, IconDownload } from '@tabler/icons-react';
 
-const Hero = () => {
+const Hero = ({aboutRef}) => {
   return (
     <Box sx={{height:'78vh', mt:10, display:'flex', justifyContent:'start', alignItems:'start',flexDirection:'column', gap:2}}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -52,7 +52,7 @@ const Hero = () => {
                 <Typography sx={{fontWeight:600, pt:0.5, color:'white'}}> Linkedin </Typography>
             </Button>
             <a href='/docs/Resume.pdf' style={{textDecoration:'none'}} target='_blank'>
-                <Button variant='contained' sx={{ borderRadius:'20px', px:2}} startIcon={<IconDownload/>}>
+                <Button ref={aboutRef} variant='contained' sx={{ borderRadius:'20px', px:2}} startIcon={<IconDownload/>}>
                     <Typography sx={{fontWeight:600, pt:0.5, color:'white'}}> Resume </Typography>
                 </Button>
             </a>

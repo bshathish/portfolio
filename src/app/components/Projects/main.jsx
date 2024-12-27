@@ -44,7 +44,7 @@ const Projects = () => {
     ];
 
     return (
-        <Box sx={{display:'flex', flexDirection:'column', gap:1}}>
+        <Box sx={{display:'flex', flexDirection:'column', gap:1, mt:6}}>
             <Typography sx={{fontSize:'75px', fontWeight:600}}>Projects </Typography>
             <Box sx={{display:'flex', flexDirection:'column', gap:2}}>
             {projectList.map((project, index) => {

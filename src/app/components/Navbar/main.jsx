@@ -1,10 +1,37 @@
 import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../../../public/favicon-32x32.png';
 import Image from 'next/image';
 import ThemToggle from '../ThemeToggleButton/main';
 
-const NavBar = () => {
+const NavBar = ({homeRef, aboutRef,projectRef, contactRef}) => {
+  const navNames = ["Home", "About", "Project", "Contact"];
+  const [hoverStyles, setHoverStyles] = useState({});
+
+  const handleMouseMove = (e, index) => {
+    const rect = e.target.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10; // Scale the offset
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+    setHoverStyles((prev) => ({ ...prev, [index]: { transform: `translate(${x}px, ${y}px)` } }));
+  };
+
+  const handleMouseLeave = (index) => {
+    setHoverStyles((prev) => ({ ...prev, [index]: { transform: 'translate(0, 0)' } }));
+  };
+
+  const handlePageClick = (e) => {
+    const clickedElement = e.target;
+    if (clickedElement.dataset.scrollTo === "Home") {
+      homeRef.current?.scrollIntoView({ behavior: "smooth" });
+    } else if (clickedElement.dataset.scrollTo === "About") {
+      aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+    } else if (clickedElement.dataset.scrollTo === "Project") {
+      projectRef.current?.scrollIntoView({ behavior: "smooth" });
+    } else if (clickedElement.dataset.scrollTo === "Contact") {
+      contactRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -21,8 +48,30 @@ const NavBar = () => {
         py: 1,
       }}
     >
-      <Box><Image src={logo} alt='logo' width={50}/></Box>
-      <Box><ThemToggle/></Box>
+      <Box sx={{width:'100%'}}><Image src={logo} alt='logo' width={50}/></Box>
+      <Box sx={{display:'flex', gap:2, width:'100%', justifyContent:'space-evenly'}}>
+        {
+          navNames.map((name, index)=>(
+            <Typography
+              data-scroll-to={name}
+              key={index} 
+              sx={{
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              padding: '5px',
+              '&:hover': {
+                color: '#FE009D',
+              },
+              ...hoverStyles[index],
+            }}
+            onMouseMove={(e) => handleMouseMove(e, index)}
+            onMouseLeave={() => handleMouseLeave(index)}
+            onClick={handlePageClick}
+            >{name}</Typography>
+          ))
+        }
+      </Box>
+      <Box sx={{width:"100%", display:'flex', justifyContent:'end'}}><ThemToggle/></Box>
     </Box>
   )
 }

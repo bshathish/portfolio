@@ -2,7 +2,7 @@ import { Box, Button, TextField, Typography } from '@mui/material';
 import React, { useRef } from 'react';
 import { IconDeviceMobile, IconLocation, IconLocationBolt, IconMapPin, IconMapPinFilled } from '@tabler/icons-react';
 
-const Contact = () => {
+const Contact = ({contactRef}) => {
     const form = useRef();
 
     const handleSubmit = (e) =>{
@@ -10,7 +10,7 @@ const Contact = () => {
     }
 
   return (
-    <Box>
+    <Box ref={contactRef}>
         <Typography sx={{fontSize:'75px', fontWeight:600}}>Contact Me</Typography>
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
             <Box sx={{display:'flex', flexDirection:'column', gap:2}}>
