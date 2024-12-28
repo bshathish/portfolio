@@ -14,7 +14,7 @@ const Footer = () => {
         {icon:<IconBrandInstagram color='#fafafa'/>, link:'https://www.instagram.com/i_shathish_b/'},
     ]
   return (
-    <Box sx={{background:'#FE009D', display:"flex", justifyContent:'space-between', width:'100%', alignItems:'center', px:7, py:1}}>
+    <Box sx={{background:'#FE009D', display:"flex", justifyContent:'space-between', width:'100%', alignItems:'center', px:7, py:1, flexDirection:{lg:'row', md:'row', sm:'column', xs:'column'}}}>
         <Box>
             <Box sx={{display:'flex', gap:0.5, alignItems:'center'}}>
                 <IconCopyright size="15px" color="#fafafa"/>

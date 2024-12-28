@@ -28,10 +28,10 @@ const Contact = ({contactRef}) => {
 
   return (
     <Box ref={contactRef}>
-        <Typography sx={{fontSize:'75px', fontWeight:600}}>Contact Me</Typography>
-        <Box sx={{display:'flex', justifyContent:'space-between'}}>
+        <Typography sx={{fontSize:{lg:'75px', md:'40px', sm:'40px', xs:'40px'}, fontWeight:600}}>Contact Me</Typography>
+        <Box sx={{display:'flex', justifyContent:'space-between', flexDirection:{lg:'row', md:'row', sm:'column', xs:'column'}, gap:5}}>
             <Box sx={{display:'flex', flexDirection:'column', gap:2}}>
-                <Typography sx={{fontSize:'30px'}}>Let’s create something amazing together!</Typography>
+                <Typography sx={{fontSize:{lg:'30px', md:'20px', sm:'20px', xs:'20px'}}}>Let’s create something amazing together!</Typography>
                 <Box sx={{display:'flex', flexDirection:'column', gap:0.5}}>
                     <Typography sx={{fontSize:'20px'}}>
                         Address

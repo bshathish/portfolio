@@ -35,7 +35,7 @@ const Experience = () => {
         my: 10,
       }}
     >
-      <Typography sx={{fontSize:'75px', fontWeight:600}}>
+      <Typography sx={{fontSize:{lg:'75px', md:'40px', sm:'40px', xs:'40px'}, fontWeight:600}}>
         Work Experience
       </Typography>
       <Box
@@ -76,13 +76,13 @@ const Experience = () => {
                         </IconButton>
                         <Box sx={{ml:3}}>
                             <Box sx={{display:'flex', gap:3, alignItems:'center',height:'100%', ml:2}}>
-                                <Box sx={{display:'flex', height:'100%', alignItems:'start'}}>
-                                    <Image src={experience.icon} width={100} style={{borderRadius:'5px', height:'65px'}} alt="skylightslogo"/>
+                                <Box sx={{display:'flex', height:'100%', alignItems:'start', mt:4}}>
+                                    <Image src={experience.icon} width={100} style={{borderRadius:'5px', height:'35px'}} alt="skylightslogo"/>
                                 </Box>
                                 <Box sx={{display:'flex', flexDirection:'column'}}>
                                 <Typography
                                     sx={{
-                                    fontSize: "30px",
+                                    fontSize: {lg:'30px', md:'25px', sm:'25px', xs:'25px'},
                                     fontWeight: "bold",
                                     }}
                                 >
@@ -91,8 +91,7 @@ const Experience = () => {
                                 </Typography>
                                 <Typography
                                     sx={{
-                                    fontSize: "25px",
-
+                                    fontSize:{lg:'30px', md:'25px', sm:'25px', xs:'25px'},
                                     }}
                                 >
                                     {experience.company}

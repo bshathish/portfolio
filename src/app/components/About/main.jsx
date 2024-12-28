@@ -5,7 +5,6 @@ import * as motion from "motion/react-client"
 import { useInView } from 'react-intersection-observer'
 import ScrollTriggered from '../Hero/animation/profileImage'
 
-
 const About = ({projectRef}) => {
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -16,8 +15,8 @@ const About = ({projectRef}) => {
     console.log("sdfkjsdjfwefew", inView)
   return (
     <Box>
-        <Typography sx={{fontSize:'75px', fontWeight:600}}>About Me</Typography>            
-        <Box ref={ref} sx={{display:'flex', overflowY:'hidden'}} >
+        <Typography sx={{fontSize:{lg:'75px', md:'40px', sm:'40px', xs:'40px'}, fontWeight:600}}>About Me</Typography>            
+        <Box ref={ref} sx={{display:'flex', overflowY:'hidden', flexDirection:{lg:'row', md:'column-reverse', sm:'column-reverse', xs:'column-reverse'}, alignItems:'center', gap:5}} >
                 <motion.div 
                     initial={{ y: "200%", opacity: 0 }}
                     animate={inView && { y: 0, opacity: 1 }}

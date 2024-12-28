@@ -59,9 +59,9 @@ const Projects = () => {
                         animate={inView && { opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.2 }}
                         >
-                            <Box sx={{display:'flex', gap:2}}>
-                                <Box sx={{width:'70%'}}>
-                                    <Image src={project.image} width={800} alt='Project Image' style={{borderRadius:'10px'}}/>
+                            <Box sx={{display:'flex', gap:2, flexDirection:{lg:'row', md:'column', sm:'column', xs:'column'}}}>
+                                <Box sx={{width:{lg:'70%', md:'100%', sm:'100%', xs:'100%'}}}>
+                                    <Image src={project.image} alt='Project Image' style={{borderRadius:'10px'}}/>
                                 </Box>
                                 <Box sx={{width:'100%', display:'flex', flexDirection:'column', gap:3}}>
                                     <Box sx={{display:'flex', justifyContent:'space-between', width:'100%'}}>
@@ -71,7 +71,7 @@ const Projects = () => {
                                         </IconButton>
                                     </Box>
                                     <Typography sx={{ fontWeight: 200,color:'grey', fontSize:'20px' }}>{project.discription}</Typography>
-                                    <Box sx={{display:'flex', gap:2}}>
+                                    <Box sx={{display:'flex', gap:2, flexWrap:'wrap'}}>
                                     {
                                         project.tech.map((tech, index)=>(
                                                 <Typography key={index} sx={{fontSize:'18px', background:bgColor, p:1, borderRadius:'5px', px:2}}>

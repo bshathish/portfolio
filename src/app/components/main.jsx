@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <Box>
-      <Box ref={homeRef} sx={{m:4, mx:7, position:'relative'}}>
+      <Box ref={homeRef} sx={{m:4, mx:{md:7, sm:3, xs:3}, position:'relative'}}>
           <NavBar homeRef={homeRef} aboutRef={aboutRef} projectRef={projectRef} contactRef={contactRef} />
           <Hero aboutRef={aboutRef}/>
           <About projectRef={projectRef}/>
