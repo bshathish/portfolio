@@ -44,7 +44,7 @@ const NavBar = ({homeRef, aboutRef,projectRef, contactRef}) => {
         position: 'sticky',
         top: 30,
         zIndex: 10,
-        px: 3,
+        px: {lg:3, md:1, sm:1, xs:1},
         py: 1,
       }}
     >
