@@ -5,7 +5,7 @@ import { IconBrandLinkedin, IconDownload } from '@tabler/icons-react';
 
 const Hero = ({aboutRef}) => {
   return (
-    <Box sx={{height:{lg:'78vh', md:'100%', sm:'100%', xs:'100%'}, mt:10, display:'flex', justifyContent:'center', alignItems:'center',flexDirection:'column', gap:2, mb:{lg:0, md:20, sm:10, xs:10}}}>
+    <Box sx={{height:{lg:'100%', md:'100%', sm:'100%', xs:'100%'},my:5, display:'flex', justifyContent:'center', alignItems:'center',flexDirection:'column', gap:2, mb:10}}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection:'column', gap:2 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1,  overflowY:'hidden', gap:5}}>
                 <motion.div
